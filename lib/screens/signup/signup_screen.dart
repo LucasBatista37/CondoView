@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +72,8 @@ class SignupScreen extends StatelessWidget {
                   //conta aqui
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),

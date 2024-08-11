@@ -1,8 +1,12 @@
+import 'package:condoview/screens/chat/chat_geral_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:condoview/components/custom_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -13,7 +17,25 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _currentIndex = index;
     });
-    //funcionalidade de navegação aqui
+
+    // Navegação baseada no índice do menu
+    switch (_currentIndex) {
+      case 0:
+        Navigator.pushNamed(context, '/home');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/search');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/condominio');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/vizinhança');
+        break;
+      case 4:
+        Navigator.pushNamed(context, '/conversas');
+        break;
+    }
   }
 
   @override
@@ -109,13 +131,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildMenuItem(IconData icon, String label) {
     return GestureDetector(
       onTap: () {
-        
+        if (label == 'Chat') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatGeralScreen()),
+          );
+        }
+        // Adicione outras navegações aqui conforme necessário
       },
       child: Container(
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 1), 
-          borderRadius: BorderRadius.circular(8.0), 
+          border: Border.all(color: Colors.black, width: 1),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
